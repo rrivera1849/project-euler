@@ -1,16 +1,26 @@
 
-def check_palindromic(i, j):
-  prod = i * j
-  if str(prod) == str(prod)[::-1]:
-    return True
+import time
 
-  return False
+def find_largest(palindromes):
+  for p in palindromes[::-1]:
+    for q in reversed(range(100, 1000)):
+      r = p / q
+      if p % q == 0 and r > 99 and r < 1000:
+        print(p)
+        return
 
-combinations = [(i, j) for i in range(100,1000) for j in range(100, 1000)]
+start = time.time()
 
-candidates = []
-for c in combinations:
-  if check_palindromic(c[0], c[1]):
-    candidates.append(c[0] * c[1])
+palindromes = []
+for a in range(1, 10):
+  for b in range(0, 10):
+    for c in range(0, 10):
+      palindromes.append(int(str(a) + str(b) + str(c) + str(b) + str(a)))
+      palindromes.append(int(str(a) + str(b) + str(c) + str(c) + str(b) + str(a)))
 
-print(max(candidates))
+palindromes.sort()
+find_largest(palindromes)
+
+end = time.time()
+
+print("Time Taken: {}".format(end - start))
