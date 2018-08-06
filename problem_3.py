@@ -10,8 +10,8 @@ def sieve(n):
       continue
 
     primes.append(p)
-    for f in range(2, (n / p) + 1):
-      marked[f*p] = True
+    for m in range(p*p, n, p):
+      marked[m] = True
 
   return primes
 

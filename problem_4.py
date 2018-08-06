@@ -9,8 +9,6 @@ def find_largest(palindromes):
         print(p)
         return
 
-start = time.time()
-
 palindromes = []
 for a in range(1, 10):
   for b in range(0, 10):
@@ -20,7 +18,3 @@ for a in range(1, 10):
 
 palindromes.sort()
 find_largest(palindromes)
-
-end = time.time()
-
-print("Time Taken: {}".format(end - start))
